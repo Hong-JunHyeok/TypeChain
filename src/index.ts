@@ -1,48 +1,27 @@
-interface Person {
-  name: string;
-  age: number;
-  gender: string;
-}
-
-//or
-
-type Human = {
-  name: string;
-  age: number;
-  gender: string;
-};
-
-//or expressing js
-
-class Human_2 {
-  name: string;
-  age: number;
-  gender: string;
-  constructor(name: string, age: number, gender: string) {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
+class Block {
+  public index: number;
+  public hash: string;
+  public prevHash: string;
+  public data: string;
+  public timestamp: number;
+  constructor(
+    index: number,
+    hash: string,
+    prevHash: string,
+    data: string,
+    timestamp: number
+  ) {
+    this.index = index;
+    this.hash = hash;
+    this.prevHash = prevHash;
+    this.data = data;
+    this.timestamp = timestamp;
   }
 }
 
-const sechan: Person = {
-  name: 'sechan',
-  age: 18,
-  gender: 'male',
-};
-const minsu: Human = {
-  name: 'minsu',
-  age: 18,
-  gender: 'male',
-};
-const hong = new Human_2('hong', 18, 'male'); //use Class
+const genesisBlock: Block = new Block(0, '202020202020', '', 'Hello', 123123);
 
-const sayHi = (object: Person): string => {
-  return `Hello ${object.name} , ${object.age}years old, ${object.gender}`;
-};
-
-console.log(sayHi(sechan));
-console.log(sayHi(minsu));
-console.log(sayHi(hong));
+let blackchain: Block[] = [genesisBlock];
+console.log(blackchain);
 
 export {};
